@@ -2,6 +2,7 @@
     font-family: sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 ul {
@@ -46,13 +47,48 @@ a {
     color: #d63384;
 }
 
-.submenu {
-    position: absolute;
-    top: 100;
-    left: 0;
-    display: none;
+.menu-item:hover > .submenu {
+    top: 100%;
+    opacity: 1;
+    visibility: visible;
 }
 
-.menu-item:hover .submenu{
-    display: block;
+.submenu {
+    position: absolute;
+    top: calc(100% + 6px);
+    width: auto;
+    transition: all 0.2s;
+    opacity: 0;
+    visibility: hidden;
+    left: 0;
+    background-color: #000;
+}
+
+.submenu a {
+  color: #fff;
+} 
+
+.submenu .menu-link, 
+.submenu .menu-item {
+  width: 100%;
+}
+
+.submenu .menu-item {
+  padding-left: 30px;
+}
+
+.submenu .menu-link {
+  padding: 15px 20px;
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: 400;
+  border-bottom: 1px dashed darkgrey;
+}
+
+.submenu .menu-item:hover > .submenu {
+  top: 0;
+}
+
+.submenu .submenu {
+  left: calc(100% + 6px);
 }
